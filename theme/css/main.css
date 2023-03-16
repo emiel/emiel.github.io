@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* 16px (browser default, root for rem units) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+/* Site layout */
+
+.site-container {
+  /* mobile */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* for sticky footer */
+
+  margin: 0;
+  padding: 0 1em;
+}
+
+@media screen and (min-width: 640px) {
+  .site-container {
+    max-width: 50em;
+    margin: 0 auto;
+  }
+}
+
+/* Site header */
+
+.site-header h1,
+h2 {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+/* Site navigation */
+
+.site-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav li {
+  display: inline-block;
+}
+
+/* Site content */
+
+.site-content {
+  flex: 1 1 auto; /* sticky footer */
+}
+
+.site-content blockquote {
+  font-style: oblique;
+}
+
+.site-content h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.site-content h1 + p,
+.site-content h2 + p,
+.site-content h3 + p,
+.site-content h4 + p,
+.site-content h5 + p,
+.site-content h6 + p {
+  margin-top: 0.2em;
+}
+
+/* Article */
+
+.article-content {
+}
+
+.article-dateline {
+}
+
+/* Wrapping */
+
+.highlight pre {
+  background-color: hsl(24, 100%, 97.1%);
+  overflow: auto;
+  padding: 0.3em 0.1em;
+}
+
+/* Site footer */
+
+.site-footer {
+  margin: 0 auto;
+}
+
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.site-footer li {
+  display: inline-block;
+}
+
+.site-footer li:not(:first-child):before {
+  content: "◊";
+  padding-right: 0.3em;
+}
+
+.site-footer .copyright {
+  padding: 0.5em;
+  margin: 0;
+}

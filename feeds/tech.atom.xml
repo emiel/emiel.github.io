@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Galloping Alligator - tech</title><link href="https://blog.ttyout.net/" rel="alternate"></link><link href="https://blog.ttyout.net/feeds/tech.atom.xml" rel="self"></link><id>https://blog.ttyout.net/</id><updated>2021-03-19T17:00:00+01:00</updated><entry><title>On Commit Messages</title><link href="https://blog.ttyout.net/on-commit-messages.html" rel="alternate"></link><published>2021-03-19T17:00:00+01:00</published><updated>2021-03-19T17:00:00+01:00</updated><author><name>Emiel van de Laar</name></author><id>tag:blog.ttyout.net,2021-03-19:/on-commit-messages.html</id><summary type="html">&lt;p&gt;Most if not all version control systems allow for annotating a change with a
+descriptive message. On many occasions, I've needed to convince others that
+this is a fantastic feature that should be taken advantage of. Here's my take
+on the matter …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Most if not all version control systems allow for annotating a change with a
+descriptive message. On many occasions, I've needed to convince others that
+this is a fantastic feature that should be taken advantage of. Here's my take
+on the matter.&lt;/p&gt;
+&lt;div class="section" id="why-write-messages-at-all"&gt;
+&lt;h2&gt;Why write messages at all?&lt;/h2&gt;
+&lt;p&gt;Here's why:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Context&lt;/strong&gt;: A well-written commit message is the best way to communicate
+valuable context about a change to other project contributors, and indeed, to
+your future self. By first reading the commit message the reader should have
+enough of an introduction and/or understanding to be able to grasp the code
+changes that follow.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Collaboration&lt;/strong&gt;: Without any kind of introduction to the change, other
+contributors need to track you down to retrieve it. We should be considerate
+and spare them the effort. If more in-depth details are required they will
+track you down anyway. ;) Besides you're collaborating here and this is a
+great opportunity to share some knowledge.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;History&lt;/strong&gt;: Any kind of &amp;quot;real world&amp;quot; project will accumulate a fair amount
+of history via other contributors. For anyone joining the project at a later
+time, the commit history can tell a valuable story if decent commit messages
+have been written. There can be real value here. &amp;quot;Uhm, why was it done like
+that? (git log) Ah, I see!&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So go ahead and take a few minutes to compose a message. Your readers
+(including yourself) will be better off. ;) If you need more convincing, &amp;quot;&lt;a class="reference external" href="https://dhwthompson.com/2019/my-favourite-git-commit"&gt;My
+favourite Git commit&lt;/a&gt;&amp;quot;, is one of my favorite posts on this subject.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-should-i-write"&gt;
+&lt;h2&gt;What should I write?&lt;/h2&gt;
+&lt;p&gt;What you should write depends on the change you are introducing. You should
+judge for yourself how much detail to include; just keep your reader in mind.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Write at the very least a decent subject line. Messages like &amp;quot;WIP&amp;quot; (work in
+progress) are fine for your topic branches but should be updated before the
+change lands in the &amp;quot;main/master&amp;quot; branch.&lt;/li&gt;
+&lt;li&gt;Go ahead and summarize the change made so the reader knows what they are
+looking at. If you find your message is getting a bit long it may be a sign
+you need to break up the change into smaller chunks, i.e. multiple commits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let's go ahead and cover some common changes:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Functional change&lt;/strong&gt;: Provide motivation for the change and convey intent.
+Why are these changes needed? What issue does it solve? What is the added
+value? This is especially important in production code. Also, a reference to
+a related discussion, i.e. issue tracking system, will be appreciated.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hairy bug fix&lt;/strong&gt;: You spent an insane amount of time tracking down a nasty
+bug. Go ahead and document the funky behavior in the change as a comment
+instead of including your full war-story in the commit message. When
+revisiting the code the adjacent comment will likely be spotted but the
+commit message won't.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spelling correction&lt;/strong&gt;: A single line subject will suffice. Don't go
+overboard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="tech"></category><category term="vcs"></category><category term="scm"></category><category term="git"></category><category term="svn"></category><category term="cvs"></category></entry><entry><title>Decoding the SendGrid Event ID</title><link href="https://blog.ttyout.net/decoding-the-sendgrid-event-id.html" rel="alternate"></link><published>2017-06-11T21:30:00+02:00</published><updated>2017-06-11T21:30:00+02:00</updated><author><name>Emiel van de Laar</name></author><id>tag:blog.ttyout.net,2017-06-11:/decoding-the-sendgrid-event-id.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://sendgrid.com"&gt;SendGrid&lt;/a&gt; is a managed email delivery service. The service is able to emit
+notifications when something interesting happens while processing your email.
+When enabled, the &lt;a class="reference external" href="https://sendgrid.com/docs/API_Reference/Webhooks/event.html"&gt;webhook&lt;/a&gt; will POST a collection of JSON encoded events to a
+URL of your choice. Each event …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://sendgrid.com"&gt;SendGrid&lt;/a&gt; is a managed email delivery service. The service is able to emit
+notifications when something interesting happens while processing your email.
+When enabled, the &lt;a class="reference external" href="https://sendgrid.com/docs/API_Reference/Webhooks/event.html"&gt;webhook&lt;/a&gt; will POST a collection of JSON encoded events to a
+URL of your choice. Each event includes a unique identifier and is the topic of
+this post.&lt;/p&gt;
+&lt;blockquote&gt;
+Note: The following are purely my observations and corrections are welcome.&lt;/blockquote&gt;
+&lt;p&gt;Let's have a look at an example JSON event, particularly the &lt;strong&gt;sg_event_id&lt;/strong&gt;
+property.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;email&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;foo@example.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;event&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;processed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;sg_event_id&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;aM7rXgTYTN-GCHRFrdsP_g&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;sg_message_id&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;snip&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;smtp-id&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;snip&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1492680648&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In our environment we have observed that the &lt;em&gt;sg_event_id&lt;/em&gt; comes in two
+different flavours (lengths). One that is &lt;em&gt;22 characaters long&lt;/em&gt; and a second
+that is &lt;em&gt;48 characters long&lt;/em&gt;. For example:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;aM7rXgTYTN-GCHRFrdsP_g&lt;/span&gt;&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;ZjVhYzRhMWQtNzAzZi00ODdlLWE0YWEtYTZhNThhYWQ4OTVk&lt;/tt&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="quick-uuid-intro"&gt;
+&lt;h2&gt;Quick UUID Intro&lt;/h2&gt;
+&lt;p&gt;While investigating the &lt;em&gt;sg_event_id&lt;/em&gt; I was tipped that these were actually
+UUIDs. A &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Universally_unique_identifier"&gt;UUID&lt;/a&gt; is 128 bit number (16 octets) that is usually presented as text,
+e.g. &lt;em&gt;f5ac4a1d-703f-487e-a4aa-a6a58aad895d&lt;/em&gt;. If you're not familiar with UUIDs
+I encourage you to give the Wikipedia page a quick glance before continuing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="character-event-id"&gt;
+&lt;h2&gt;22 Character Event ID&lt;/h2&gt;
+&lt;p&gt;Let's tackle the 22 character format first by poking at it in the Python shell.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;buf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;aM7rXgTYTN-GCHRFrdsP_g&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The string looks like it might be &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Base64"&gt;Base64&lt;/a&gt; encoded due to the characters
+(alphabet) used (A-Z, a-z, 0-9). There are a number of Base64 encoding
+alternatives that treat index values 62 and 63 differently and we need to make
+sure we're using the right one. I went through our collection of event IDs and
+was able to identify many having both a &lt;strong&gt;minus&lt;/strong&gt; and an &lt;strong&gt;underscore&lt;/strong&gt;
+character. This indicates the &lt;a class="reference external" href="https://tools.ietf.org/html/rfc4648#section-5"&gt;Base64url&lt;/a&gt; variant is good candidate.&lt;/p&gt;
+&lt;p&gt;Let's pull in the &lt;tt class="docutils literal"&gt;base64&lt;/tt&gt; library and attempt to decode the event ID.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;base64&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;base64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlsafe_b64decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;snip&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="ne"&gt;TypeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Incorrect&lt;/span&gt; &lt;span class="n"&gt;padding&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Python gives us an &lt;tt class="docutils literal"&gt;Incorrect padding&lt;/tt&gt; error. We'll skip a thorough break
+down of Base64 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Base64#Output_padding"&gt;padding&lt;/a&gt; but of interest is the fact that some implementations
+discard the padding in the output because the number of missing bytes can be
+determined by the number of Base64 characters. In addition
+&lt;a class="reference external" href="https://tools.ietf.org/html/rfc4648#section-5"&gt;RFC4648 § 5&lt;/a&gt; gives us a
+hint as to why one might do that.&lt;/p&gt;
+&lt;blockquote&gt;
+The pad character &amp;quot;=&amp;quot; is typically percent-encoded when used in an
+URI [9], but if the data length is known implicitly, this can be
+avoided by skipping the padding; ...&lt;/blockquote&gt;
+&lt;p&gt;Let's see if we can figure out how much padding might have been discarded.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+
+&lt;span class="c1"&gt;# &amp;#39;[aM7r][XgTY][TN-G][CHRF][rdsP][_g  ]&amp;#39;&lt;/span&gt;
+&lt;span class="c1"&gt;#         discarded padding --------^^&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So according to the spec we need to append two padding characters, i.e. &amp;quot;==&amp;quot;,
+to our our &lt;em&gt;sg_event_id&lt;/em&gt;. Will it now decode properly?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;base64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlsafe_b64decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buf&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;==&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;h&lt;/span&gt;&lt;span class="se"&gt;\xce\xeb&lt;/span&gt;&lt;span class="s1"&gt;^&lt;/span&gt;&lt;span class="se"&gt;\x04\xd8&lt;/span&gt;&lt;span class="s1"&gt;L&lt;/span&gt;&lt;span class="se"&gt;\xdf\x86\x08&lt;/span&gt;&lt;span class="s1"&gt;tE&lt;/span&gt;&lt;span class="se"&gt;\xad\xdb\x0f\xfe&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Bingo, we have some bytes! Sixteen to be exact (you may check using len()).
+Let's also encode as hex to make it a bit more readable.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;h&lt;/span&gt;&lt;span class="se"&gt;\xce\xeb&lt;/span&gt;&lt;span class="s1"&gt;^&lt;/span&gt;&lt;span class="se"&gt;\x04\xd8&lt;/span&gt;&lt;span class="s1"&gt;L&lt;/span&gt;&lt;span class="se"&gt;\xdf\x86\x08&lt;/span&gt;&lt;span class="s1"&gt;tE&lt;/span&gt;&lt;span class="se"&gt;\xad\xdb\x0f\xfe&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;hex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;68ceeb5e04d84cdf86087445addb0ffe&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;From our intro we know that a UUID is text format representing 16 bytes. Let's
+see if we can plug these bytes in and get a sensible UUID out.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;uuid&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UUID&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;bytes&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;h&lt;/span&gt;&lt;span class="se"&gt;\xce\xeb&lt;/span&gt;&lt;span class="s1"&gt;^&lt;/span&gt;&lt;span class="se"&gt;\x04\xd8&lt;/span&gt;&lt;span class="s1"&gt;L&lt;/span&gt;&lt;span class="se"&gt;\xdf\x86\x08&lt;/span&gt;&lt;span class="s1"&gt;tE&lt;/span&gt;&lt;span class="se"&gt;\xad\xdb\x0f\xfe&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt;
+&lt;span class="n"&gt;UUID&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;68ceeb5e-04d8-4cdf-8608-7445addb0ffe&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;variant&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RFC_4122&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That appears to check out.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="character-event-id-1"&gt;
+&lt;h2&gt;48 Character Event ID&lt;/h2&gt;
+&lt;p&gt;Now let's have a look at the &lt;em&gt;sg_event_id&lt;/em&gt; having 48 characters.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;buf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ZjVhYzRhMWQtNzAzZi00ODdlLWE0YWEtYTZhNThhYWQ4OTVk&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Again this looks like it is Base64 encoded or some variant thereof. Lets just
+give it a shot.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;base64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b64decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;f5ac4a1d-703f-487e-a4aa-a6a58aad895d&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Hey that looks familiar. It appears to be a UUIDv4 encoded string. Let's build
+a UUID from the Base64 decoded string and see if it checks out.&lt;/p&gt;
+&lt;blockquote&gt;
+Note: I was unable to determine which variant of Base64 is used for this
+format. We've yet to see any special characters outside of A-Z, a-z, 0-9
+alphabet.&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UUID&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;f5ac4a1d-703f-487e-a4aa-a6a58aad895d&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt;
+&lt;span class="n"&gt;UUID&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;f5ac4a1d-703f-487e-a4aa-a6a58aad895d&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;variant&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RFC_4122&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That appears to check out as well.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="wrapping-up"&gt;
+&lt;h2&gt;Wrapping Up&lt;/h2&gt;
+&lt;p&gt;I've applied the above decoding to all the events we've collected so far and
+every event id looks to be a valid UUIDv4 thus I'm fairly confident this is a
+valid decoding. I initially asked SendGrid support if they could point me to
+some documentation or clarify the difference in the format. I didn't get a
+clear answer but did mention these were generated by different systems.&lt;/p&gt;
+&lt;p&gt;Why the SendGrid UUIDs are Base64 encoded is a bit puzzling to me. A UUID
+string is already URL safe because it consists of only the characters 0-9, a-f
+and &amp;quot;-&amp;quot;. The short format (22 chars) does take you from 32 chars (UUID string)
+to 22 chars because the underlying 128 bit number is encoded. However, Base64
+encoding a UUID string is going in the wrong direction as it takes you from 32
+chars (UUID string) to 48.&lt;/p&gt;
+&lt;p&gt;This excercise has resulted in a &lt;a class="reference external" href="https://gist.github.com/emiel/99e5c103dfffaf05629ca305ff546c18"&gt;Python implementation&lt;/a&gt; and a &lt;a class="reference external" href="https://gist.github.com/emiel/49aa93baab83a55f17dca4f7d790a067"&gt;Postgres
+implementation&lt;/a&gt;.  Feel free to use them.&lt;/p&gt;
+&lt;p&gt;A final warning: SendGrid offers testing functionality to emit example
+events. The &lt;em&gt;sg_event_id&lt;/em&gt; in these events has &lt;em&gt;24 characters&lt;/em&gt; and is the 22
+character variant with the padding included.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="tech"></category><category term="sendgrid"></category><category term="uuid"></category><category term="base64"></category></entry></feed>

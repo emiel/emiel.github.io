@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://blog.ttyout.net/theme/css/main.css">
+  <title>On Commit Messages</title>
+
+  <meta name="author" content="Emiel van de Laar">
+  <meta name="description" content="Most if not all version control systems allow for annotating a change with a descriptive message. On many occasions, I&#39;ve needed to convince others that this is a fantastic feature that should be taken advantage of. Here&#39;s my take on the matter …">
+</head>
+
+<body class="site-container">
+
+<header class="site-header">
+  <h1><a href="https://blog.ttyout.net/">Galloping Alligator</a></h1>
+
+  <nav>
+    <ol class="site-nav">
+      <li><a href="/">Writing</a></li>
+      <li><a href="/pages/about.html">About</a></li>
+      <li><a href="/pages/uses.html">Uses</a></li>
+    </ol>
+  </nav>
+</header>
+
+<div class="site-content">
+  <article>
+    <header>
+      <h2>On Commit Messages</h2>
+      <small>
+        <em>
+        Posted on <time datetime="2021-03-19T17:00:00+01:00">2021-03-19</time>
+        </em>
+      </small>
+    </header>
+
+    <div class="article-content">
+      <p>Most if not all version control systems allow for annotating a change with a
+descriptive message. On many occasions, I've needed to convince others that
+this is a fantastic feature that should be taken advantage of. Here's my take
+on the matter.</p>
+<div class="section" id="why-write-messages-at-all">
+<h2>Why write messages at all?</h2>
+<p>Here's why:</p>
+<ul class="simple">
+<li><strong>Context</strong>: A well-written commit message is the best way to communicate
+valuable context about a change to other project contributors, and indeed, to
+your future self. By first reading the commit message the reader should have
+enough of an introduction and/or understanding to be able to grasp the code
+changes that follow.</li>
+<li><strong>Collaboration</strong>: Without any kind of introduction to the change, other
+contributors need to track you down to retrieve it. We should be considerate
+and spare them the effort. If more in-depth details are required they will
+track you down anyway. ;) Besides you're collaborating here and this is a
+great opportunity to share some knowledge.</li>
+<li><strong>History</strong>: Any kind of &quot;real world&quot; project will accumulate a fair amount
+of history via other contributors. For anyone joining the project at a later
+time, the commit history can tell a valuable story if decent commit messages
+have been written. There can be real value here. &quot;Uhm, why was it done like
+that? (git log) Ah, I see!&quot;</li>
+</ul>
+<p>So go ahead and take a few minutes to compose a message. Your readers
+(including yourself) will be better off. ;) If you need more convincing, &quot;<a class="reference external" href="https://dhwthompson.com/2019/my-favourite-git-commit">My
+favourite Git commit</a>&quot;, is one of my favorite posts on this subject.</p>
+</div>
+<div class="section" id="what-should-i-write">
+<h2>What should I write?</h2>
+<p>What you should write depends on the change you are introducing. You should
+judge for yourself how much detail to include; just keep your reader in mind.</p>
+<ul class="simple">
+<li>Write at the very least a decent subject line. Messages like &quot;WIP&quot; (work in
+progress) are fine for your topic branches but should be updated before the
+change lands in the &quot;main/master&quot; branch.</li>
+<li>Go ahead and summarize the change made so the reader knows what they are
+looking at. If you find your message is getting a bit long it may be a sign
+you need to break up the change into smaller chunks, i.e. multiple commits.</li>
+</ul>
+<p>Let's go ahead and cover some common changes:</p>
+<ul class="simple">
+<li><strong>Functional change</strong>: Provide motivation for the change and convey intent.
+Why are these changes needed? What issue does it solve? What is the added
+value? This is especially important in production code. Also, a reference to
+a related discussion, i.e. issue tracking system, will be appreciated.</li>
+<li><strong>Hairy bug fix</strong>: You spent an insane amount of time tracking down a nasty
+bug. Go ahead and document the funky behavior in the change as a comment
+instead of including your full war-story in the commit message. When
+revisiting the code the adjacent comment will likely be spotted but the
+commit message won't.</li>
+<li><strong>Spelling correction</strong>: A single line subject will suffice. Don't go
+overboard.</li>
+</ul>
+</div>
+
+    </div>
+  </article>
+</div>
+
+<footer class="site-footer">
+  <ul>
+    <li><a href="https://github.com/emiel" ref="me">GitHub</a></li>
+    <li><a href="https://hachyderm.io/@emiel" ref="me">Mastodon</a></li>
+    <li><a href="mailto:gemiel@gmail.com" ref="me">e-mail</a></li>
+  </ul>
+  <p class="copyright">&copy; 2014&ndash;2023 Emiel van de Laar</p>
+</footer>
+
+</body>
+</html>
