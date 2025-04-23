@@ -104,7 +104,7 @@ sure we're using the right one. I went through our collection of event IDs and
 was able to identify many having both a &lt;strong&gt;minus&lt;/strong&gt; and an &lt;strong&gt;underscore&lt;/strong&gt;
 character. This indicates the &lt;a class="reference external" href="https://tools.ietf.org/html/rfc4648#section-5"&gt;Base64url&lt;/a&gt; variant is good candidate.&lt;/p&gt;
 &lt;p&gt;Let's pull in the &lt;tt class="docutils literal"&gt;base64&lt;/tt&gt; library and attempt to decode the event ID.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;base64&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;base64&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;base64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlsafe_b64decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;snip&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="ne"&gt;TypeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Incorrect&lt;/span&gt; &lt;span class="n"&gt;padding&lt;/span&gt;
@@ -138,7 +138,7 @@ Let's also encode as hex to make it a bit more readable.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;From our intro we know that a UUID is text format representing 16 bytes. Let's
 see if we can plug these bytes in and get a sensible UUID out.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;uuid&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;uuid&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UUID&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;bytes&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;h&lt;/span&gt;&lt;span class="se"&gt;\xce\xeb&lt;/span&gt;&lt;span class="s1"&gt;^&lt;/span&gt;&lt;span class="se"&gt;\x04\xd8&lt;/span&gt;&lt;span class="s1"&gt;L&lt;/span&gt;&lt;span class="se"&gt;\xdf\x86\x08&lt;/span&gt;&lt;span class="s1"&gt;tE&lt;/span&gt;&lt;span class="se"&gt;\xad\xdb\x0f\xfe&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;eid&lt;/span&gt;
 &lt;span class="n"&gt;UUID&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;68ceeb5e-04d8-4cdf-8608-7445addb0ffe&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
