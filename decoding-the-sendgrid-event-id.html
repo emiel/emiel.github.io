@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://blog.ttyout.net/theme/css/main.css">
   <title>Decoding the SendGrid Event ID | Galloping Alligator</title>
@@ -79,7 +78,7 @@ sure we're using the right one. I went through our collection of event IDs and
 was able to identify many having both a <strong>minus</strong> and an <strong>underscore</strong>
 character. This indicates the <a class="reference external" href="https://tools.ietf.org/html/rfc4648#section-5">Base64url</a> variant is good candidate.</p>
 <p>Let's pull in the <tt class="docutils literal">base64</tt> library and attempt to decode the event ID.</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">base64</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64decode</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
 <span class="p">[</span><span class="n">snip</span><span class="p">]</span>
 <span class="ne">TypeError</span><span class="p">:</span> <span class="n">Incorrect</span> <span class="n">padding</span>
@@ -113,7 +112,7 @@ Let's also encode as hex to make it a bit more readable.</p>
 </pre></div>
 <p>From our intro we know that a UUID is text format representing 16 bytes. Let's
 see if we can plug these bytes in and get a sensible UUID out.</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">uuid</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">eid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="s1">&#39;h</span><span class="se">\xce\xeb</span><span class="s1">^</span><span class="se">\x04\xd8</span><span class="s1">L</span><span class="se">\xdf\x86\x08</span><span class="s1">tE</span><span class="se">\xad\xdb\x0f\xfe</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">eid</span>
 <span class="n">UUID</span><span class="p">(</span><span class="s1">&#39;68ceeb5e-04d8-4cdf-8608-7445addb0ffe&#39;</span><span class="p">)</span>
